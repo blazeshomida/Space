@@ -69,9 +69,17 @@ const Technology = () => {
 		},
 	};
 
-	const desktopMedia = window.matchMedia(
-		"(min-width: 1024px) and (orientation:landscape)"
-	).matches;
+	function checkWindow() {
+		let desktopMedia = false; // Initialize desktopMedia with a default value
+		if (typeof window !== 'undefined') {
+			// safe to use window
+			desktopMedia = window.matchMedia(
+				"(min-width: 1024px) and (orientation:landscape)"
+			).matches;
+		}
+		return desktopMedia;
+	}
+	
 
 	return (
 		<div className={`grid ${Styles.layout} overflow-y-hidden`}>
@@ -85,7 +93,7 @@ const Technology = () => {
 						className={`${Styles.image}`}
 						width={1000}
 						height={1000}
-						src={desktopMedia ? activeImagePortrait : activeImageLandscape}
+						src={checkWindow() ? activeImagePortrait : activeImageLandscape}
 						alt={activeDescription}
 					/>
 
