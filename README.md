@@ -48,7 +48,7 @@ In the screenshot above, you can see the final result of my space tourism websit
 ### Links
 
 - Solution URL: [View solution URL here](https://www.frontendmentor.io/challenges/space-tourism-multipage-website-gRWj1URZ3/hub)
-- Live Site URL: [View live site URL here](https://blazeshomida.github.io/Space-Tourism-Website-React--FEM-/)
+- Live Site URL: [View live site URL here](https://space-tourism-react-fem.vercel.app/)
 
 ## My process
 
