@@ -1,0 +1,184 @@
+.section::before {
+	content: "";
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: cover;
+	inset: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: -1;
+	background-image: url("../../public/assets/destination/background-destination-mobile.jpg");
+}
+
+.planet {
+	max-width: 50%;
+	grid-area: planet;
+	place-self: center;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.inactive {
+	scale: 0;
+	transition: all 200ms ease-in-out;
+}
+
+.active {
+	scale: 1;
+}
+
+.layout {
+	padding-inline: 2rem;
+	display: grid;
+	text-align: center;
+	justify-content: center;
+	align-items: center;
+	grid-template-areas:
+		"title"
+		"planet"
+		"tabs"
+		"info"
+		"details";
+}
+
+.title {
+	grid-area: title;
+}
+
+.tabs {
+	grid-area: tabs;
+}
+
+.inactiveTab {
+	opacity: 50%;
+	transition: all 250ms ease-in-out;
+	position: relative;
+}
+
+.inactiveTab:hover {
+	opacity: 100%;
+	color: var(--text-color-primary);
+}
+
+.inactiveTab::after {
+	content: "";
+	width: 50%;
+	position: absolute;
+	height: 1px;
+	left: 25%;
+	bottom: 0;
+	scale: 0;
+	transition: all 250ms ease-in-out;
+	border-bottom: 1px solid transparent;
+}
+
+.inactiveTab:hover::after {
+	opacity: 100%;
+	scale: 0.5;
+	border-bottom: 1px solid rgb(255, 255, 255, 0.5);
+}
+
+.activeTab {
+	color: var(--text-color-primary);
+	opacity: 100%;
+	position: relative;
+}
+
+.activeTab::after {
+	content: "";
+	position: absolute;
+	height: 1px;
+	bottom: 0;
+	inset-inline: 0;
+	background-color: var(--text-color-primary);
+	animation: growthHalf 500ms ease-in-out forwards;
+}
+
+@keyframes growth {
+	from {
+		scale: 0;
+		opacity: 0;
+	}
+	to {
+		scale: 1;
+		opacity: 1;
+	}
+}
+
+@keyframes growthHalf {
+	from {
+		scale: 0;
+		opacity: 0;
+	}
+	to {
+		scale: 0.5;
+		opacity: 1;
+	}
+}
+
+.info {
+	grid-area: info;
+}
+
+.details {
+	column-gap: 4rem;
+	place-self: center;
+	display: grid;
+	grid-area: details;
+	grid-template-areas:
+		"distLabel"
+		"distDetail"
+		"timeLabel"
+		"timeDetail";
+}
+
+.distLabel {
+	grid-area: distLabel;
+}
+.distDetail {
+	grid-area: distDetail;
+}
+.timeLabel {
+	grid-area: timeLabel;
+}
+.timeDetail {
+	grid-area: timeDetail;
+}
+
+@media (min-width: 540px), (orientation: landscape) {
+	.section::before {
+		background-image: url("../../public/assets/destination/background-destination-tablet.jpg");
+	}
+
+	.details {
+		grid-area: details;
+		grid-template-areas:
+			"distLabel timeLabel"
+			"distDetail timeDetail";
+	}
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+	.section::before {
+		background-image: url("../../public/assets/destination/background-destination-desktop.jpg");
+	}
+	.layout {
+		text-align: left;
+		grid-template-areas:
+			"title title"
+			". tabs"
+			"planet info"
+			". details";
+	}
+
+	.details {
+		place-self: start;
+	}
+}

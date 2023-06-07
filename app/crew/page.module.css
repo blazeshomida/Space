@@ -1,0 +1,78 @@
+.section::before {
+	content: "";
+	position: absolute;
+	background-repeat: no-repeat;
+	background-size: cover;
+	inset: 0;
+	height: 100vh;
+	width: 100vw;
+	z-index: -1;
+	background-image: url("../../public/assets/crew/background-crew-mobile.jpg");
+}
+
+.layout {
+	align-items: start;
+	grid-template-areas:
+		"title"
+		"image"
+		"pagination"
+		"bio";
+}
+
+@media (min-width: 540px) {
+	.section::before {
+		background-image: url("../../public/assets/crew/background-crew-tablet.jpg");
+	}
+	.layout {
+		grid-template-rows: min-content 15rem min-content 30%;
+		text-align: center;
+		grid-template-areas:
+			"title"
+			"bio"
+			"pagination"
+			"image";
+	}
+}
+
+@media (min-width: 1024px) and (orientation: landscape) {
+	.section::before {
+		background-image: url("../../public/assets/crew/background-crew-desktop.jpg");
+	}
+	.layout {
+		text-align: left;
+		align-items: center;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: min-content;
+		grid-template-areas:
+			"title title"
+			"bio image"
+			"pagination image";
+	}
+}
+
+@media (orientation: landscape) {
+	.pagination {
+		justify-content: start;
+	}
+}
+
+.title {
+	grid-area: title;
+}
+
+.image {
+	grid-area: image;
+}
+
+.pagination {
+	grid-area: pagination;
+}
+
+.pagButton:hover {
+	transition: all 250ms ease-in-out;
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.bio {
+	grid-area: bio;
+}
