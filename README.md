@@ -1,4 +1,4 @@
-# Frontend Mentor - Space tourism website solution  <!-- omit in toc -->
+# Space tourism website  <!-- omit in toc -->
 
 The project you are about to explore is a solution to the Space Tourism website challenge on Frontend Mentor.
 
